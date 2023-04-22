@@ -1,4 +1,6 @@
 mod app;
+mod components;
+mod log;
 
 use crate::app::App;
 
