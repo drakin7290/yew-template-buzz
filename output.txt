@@ -1,0 +1,141 @@
+#![feature(prelude_import)]
+#[prelude_import]
+use std::prelude::rust_2021::*;
+#[macro_use]
+extern crate std;
+mod app {
+    use yew::prelude::*;
+    #[allow(unused_parens)]
+    pub struct App {
+        _marker: ::std::marker::PhantomData<()>,
+        function_component: ::yew::functional::FunctionComponent<Self>,
+    }
+    impl ::yew::functional::FunctionProvider for App {
+        type Properties = ();
+        fn run(
+            ctx: &mut ::yew::functional::HookContext,
+            props: &Self::Properties,
+        ) -> ::yew::html::HtmlResult {
+            fn app(_ctx: &mut ::yew::functional::HookContext, _: &()) -> Html {
+                {
+                    {
+                        #[allow(clippy::useless_conversion)]
+                        <::yew::virtual_dom::VNode as ::std::convert::From<
+                            _,
+                        >>::from({
+                            #[allow(clippy::redundant_clone, unused_braces)]
+                            let node = ::std::convert::Into::<
+                                ::yew::virtual_dom::VNode,
+                            >::into(
+                                ::yew::virtual_dom::VTag::__new_other(
+                                    ::std::borrow::Cow::<
+                                        'static,
+                                        ::std::primitive::str,
+                                    >::Borrowed("button"),
+                                    ::std::default::Default::default(),
+                                    ::std::option::Option::None,
+                                    ::yew::virtual_dom::Attributes::Static(
+                                        &[
+                                            (
+                                                "class",
+                                                "connect",
+                                                ::yew::virtual_dom::ApplyAttributeAs::Attribute,
+                                            ),
+                                        ],
+                                    ),
+                                    ::yew::virtual_dom::listeners::Listeners::None,
+                                    ::yew::virtual_dom::VList::with_children(
+                                        <[_]>::into_vec(
+                                            #[rustc_box]
+                                            ::alloc::boxed::Box::new([
+                                                ::std::convert::Into::into(
+                                                    ::yew::virtual_dom::VText::new(
+                                                        ::yew::virtual_dom::AttrValue::Static("Connect Dapp"),
+                                                    ),
+                                                ),
+                                            ]),
+                                        ),
+                                        ::std::option::Option::None,
+                                    ),
+                                ),
+                            );
+                            node
+                        })
+                    }
+                }
+            }
+            ::yew::html::IntoHtmlResult::into_html_result(app(ctx, props))
+        }
+    }
+    #[automatically_derived]
+    impl ::std::fmt::Debug for App {
+        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+            f.write_fmt(format_args!("App<_>"))
+        }
+    }
+    #[automatically_derived]
+    impl ::yew::html::BaseComponent for App
+    where
+        Self: 'static,
+    {
+        type Message = ();
+        type Properties = ();
+        #[inline]
+        fn create(ctx: &::yew::html::Context<Self>) -> Self {
+            Self {
+                _marker: ::std::marker::PhantomData,
+                function_component: ::yew::functional::FunctionComponent::<
+                    Self,
+                >::new(ctx),
+            }
+        }
+        #[inline]
+        fn update(
+            &mut self,
+            _ctx: &::yew::html::Context<Self>,
+            _msg: Self::Message,
+        ) -> ::std::primitive::bool {
+            true
+        }
+        #[inline]
+        fn changed(
+            &mut self,
+            _ctx: &::yew::html::Context<Self>,
+            _old_props: &Self::Properties,
+        ) -> ::std::primitive::bool {
+            true
+        }
+        #[inline]
+        fn view(&self, ctx: &::yew::html::Context<Self>) -> ::yew::html::HtmlResult {
+            ::yew::functional::FunctionComponent::<
+                Self,
+            >::render(&self.function_component, ::yew::html::Context::<Self>::props(ctx))
+        }
+        #[inline]
+        fn rendered(
+            &mut self,
+            _ctx: &::yew::html::Context<Self>,
+            _first_render: ::std::primitive::bool,
+        ) {
+            ::yew::functional::FunctionComponent::<
+                Self,
+            >::rendered(&self.function_component)
+        }
+        #[inline]
+        fn destroy(&mut self, _ctx: &::yew::html::Context<Self>) {
+            ::yew::functional::FunctionComponent::<
+                Self,
+            >::destroy(&self.function_component)
+        }
+        #[inline]
+        fn prepare_state(&self) -> ::std::option::Option<::std::string::String> {
+            ::yew::functional::FunctionComponent::<
+                Self,
+            >::prepare_state(&self.function_component)
+        }
+    }
+}
+use crate::app::App;
+fn main() {
+    yew::Renderer::<App>::new().render();
+}
