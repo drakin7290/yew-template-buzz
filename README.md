@@ -31,6 +31,7 @@ pub mod style;
 
 use stylist::yew::styled_component;
 use yew::{html, Html, Properties};
+use style::{stylesheet, ClassStyle};
 
 #[derive(PartialEq, Properties)]
 pub struct CpnProps {}
@@ -38,7 +39,7 @@ pub struct CpnProps {}
 #[styled_component(Cpn)]
 pub fn cpn(props: &CpnProps) -> Html {
     let CpnProps {} = props;
-    let stylesheet: stylist::Style = style::stylesheet();
+    let stylesheet: ClassStyle = stylesheet();
     html! {
         <div class={stylesheet}></div>
     }
@@ -53,13 +54,18 @@ Thay `Cpn` thành tên component cần dùng, lưu ý: Giữ đúng cấu trúc 
 ```rs
 use stylist::{style, Style};
 
-pub fn stylesheet() -> Style {
-    let stylesheet: Style = style!(
+pub struct ClassStyle {
+    pub header: Style,
+}
+
+pub fn stylesheet() -> ClassStyle {
+    let header_css: Style = style!(
         r#"
             color: red;
         "#,
     )
     .unwrap();
+    let stylesheet: ClassStyle = ClassStyle { header: header_css };
     return stylesheet;
 }
 ```
