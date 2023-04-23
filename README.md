@@ -41,7 +41,7 @@ pub fn cpn(props: &CpnProps) -> Html {
     let CpnProps {} = props;
     let stylesheet: ClassStyle = stylesheet();
     html! {
-        <div class={stylesheet}></div>
+        <div class={stylesheet.style}></div>
     }
 }
 ```
@@ -55,17 +55,17 @@ Thay `Cpn` thành tên component cần dùng, lưu ý: Giữ đúng cấu trúc 
 use stylist::{style, Style};
 
 pub struct ClassStyle {
-    pub header: Style,
+    pub style: Style,
 }
 
 pub fn stylesheet() -> ClassStyle {
-    let header_css: Style = style!(
+    let style_css: Style = style!(
         r#"
             color: red;
         "#,
     )
     .unwrap();
-    let stylesheet: ClassStyle = ClassStyle { header: header_css };
+    let stylesheet: ClassStyle = ClassStyle { style: style_css };
     return stylesheet;
 }
 ```
